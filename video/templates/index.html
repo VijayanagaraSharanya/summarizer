@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Transcription</title>
+</head>
+<body>
+    <h1>Video Transcription</h1>
+    
+    {% if transcription %}
+        <p>Transcription: {{ transcription }}</p>
+    {% endif %}
+
+    {% if error %}
+        <p>Error: {{ error }}</p>
+    {% endif %}
+
+    <form action="/transcribe_video" method="post" enctype="multipart/form-data">
+        <label for="video_file">Choose a video file:</label>
+        <input type="file" name="video_file" accept="video/*" required>
+        <br>
+        <input type="submit" value="Transcribe">
+    </form>
+</body>
+</html>
